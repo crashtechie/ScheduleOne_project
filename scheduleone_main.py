@@ -83,6 +83,30 @@ def main():
     
     #level_1_drugs.to_csv('output/level_1_drugs/level_1_drugs.csv', index=True)
     insert_level_1_drug_df(level_1_drugs)
+    
+    # get the item that has the highest value increase for og_kush
+    og_kush = level_1_drugs[level_1_drugs['base_drug'] == 'og_kush']
+    og_kush_max = og_kush.loc[og_kush['value_increase'].idxmax()]
+    og_kush_max = og_kush_max[['item_name', 'value_increase', 'addiction_increase']]
+    print(f'Item with the highest value increase for og_kush: {og_kush_max['item_name']}')
+    
+    # get the item that has the higest vaalue increase for sour_diesel
+    sour_diesel = level_1_drugs[level_1_drugs['base_drug'] == 'sour_diesel']
+    sour_diesel_max = sour_diesel.loc[sour_diesel['value_increase'].idxmax()]
+    sour_diesel_max = sour_diesel_max[['item_name', 'value_increase', 'addiction_increase']]
+    print(f'Item with the highest value increase for sour_diesel: {sour_diesel_max['item_name']}')
+    
+    # get the item that has the highest value increase for green_crack
+    green_crack = level_1_drugs[level_1_drugs['base_drug'] == 'green_crack']
+    green_crack_max = green_crack.loc[green_crack['value_increase'].idxmax()]
+    green_crack_max = green_crack_max[['item_name', 'value_increase', 'addiction_increase']]
+    print(f'Item with the highest value increase for green_crack: {green_crack_max['item_name']}')
+    
+    # get the item that has the highest value increase for granddaddy_purple
+    granddaddy_purple = level_1_drugs[level_1_drugs['base_drug'] == 'granddaddy_purple']
+    granddaddy_purple_max = granddaddy_purple.loc[granddaddy_purple['value_increase'].idxmax()]
+    granddaddy_purple_max = granddaddy_purple_max[['item_name', 'value_increase', 'addiction_increase']]
+    print(f'Item with the highest value increase for granddaddy_purple: {granddaddy_purple_max['item_name']}')
 
 def create_sqlite_db():
     if not os.path.exists('output/database'):
