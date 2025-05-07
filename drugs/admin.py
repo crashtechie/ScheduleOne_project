@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import BaseDrugs, Ingredients, LevelOneDrugs
+
+admin.site.register(BaseDrugs)
+admin.site.register(Ingredients)
+admin.site.register(LevelOneDrugs)
