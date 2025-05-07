@@ -38,6 +38,7 @@ ALLOWED_HOSTS = config['django']['allowed_hosts']
 # Application definition
 
 INSTALLED_APPS = [
+    'drugs.apps.DrugsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
