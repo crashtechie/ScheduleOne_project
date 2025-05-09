@@ -1,0 +1,10 @@
+# this is a sample toml file
+[django]
+ENV = 'dev'
+SECRET_KEY = 'django-insecure-^tsfv-1%$xo13m=_*zjt58++oypdz(tx*i+z)*pz8%^mtco2q9'
+DEBUG = 'True'
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+[database]
+engine = 'django.db.backends.sqlite3'
+name = "BASE_DIR / 'scheduleone.db'"

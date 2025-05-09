@@ -7,4 +7,3 @@ data/
 *.log
 *.pyc
 __pycache__/
-*.toml
