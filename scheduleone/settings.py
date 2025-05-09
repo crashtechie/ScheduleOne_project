@@ -15,10 +15,9 @@ import os
 import toml
 
 
+
 # Get the environment variable, default to 'dev' if not set
 environment = os.getenv('ENV', 'dev')
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
