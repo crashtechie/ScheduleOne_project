@@ -15,31 +15,26 @@ import os
 import toml
 
 
-#load configuration from toml file file should be named config.{environment}.toml
-# Load the configuration file based on the environment
-# For example, if you want to load the development configuration
-# You can set the environment variable before running the script
-# os.environ['ENV'] = 'dev'
+
 # Get the environment variable, default to 'dev' if not set
 environment = os.getenv('ENV', 'dev')
-
-config_path = os.path.join(os.path.dirname(__file__), f'config.{environment}.toml')
-config = toml.load(config_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# load configuration
+config = toml.load(BASE_DIR/f'config.{environment}.toml')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['django']['secret_key']
+SECRET_KEY = config['django']['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config['django']['debug']
+DEBUG = config['django']['DEBUG']
 
-ALLOWED_HOSTS = config['django']['allowed_hosts']
+ALLOWED_HOSTS = config['django']['ALLOWED_HOSTS']
 
 
 # Application definition
@@ -89,8 +84,8 @@ WSGI_APPLICATION = 'scheduleone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config['database']['engine'],
-        'NAME': os.path.join(BASE_DIR, config['database']['name']),
+        'ENGINE': config['database']['ENGINE'],
+        'NAME': os.path.join(BASE_DIR, config['database']['NAME']),
     }
 }
 
