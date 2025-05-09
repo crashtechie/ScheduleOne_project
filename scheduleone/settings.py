@@ -15,8 +15,15 @@ import os
 import toml
 
 
-#load configuration from toml file
-config_path = os.path.join(os.path.dirname(__file__), 'config.dev.toml')
+#load configuration from toml file file should be named config.{environment}.toml
+# Load the configuration file based on the environment
+# For example, if you want to load the development configuration
+# You can set the environment variable before running the script
+# os.environ['ENV'] = 'dev'
+# Get the environment variable, default to 'dev' if not set
+environment = os.getenv('ENV', 'dev')
+
+config_path = os.path.join(os.path.dirname(__file__), f'config.{environment}.toml')
 config = toml.load(config_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +45,7 @@ ALLOWED_HOSTS = config['django']['allowed_hosts']
 # Application definition
 
 INSTALLED_APPS = [
+    'drugs.apps.DrugsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
